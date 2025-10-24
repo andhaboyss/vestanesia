@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:vestanesia/page/login_page.dart';
+import 'package:vestanesia/page/pembayaran_detail_info.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,13 +18,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
   // Fungsi untuk menunda navigasi (ganti dengan halaman Login Anda)
   _navigateToHome() async {
-    await Future.delayed(const Duration(seconds: 1), () {});
+    await Future.delayed(const Duration(seconds: 2), () {});
     
     if (mounted) {
       Navigator.pushReplacement(
         context, 
         MaterialPageRoute(
-          builder: (context) => LoginPage(), 
+          builder: (context) => PembayaranDetailInfo(), 
         ),
       );
     }
@@ -32,8 +32,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
 Widget build(BuildContext context) {
-  // Hapus 'const' di sini. Jika Anda membiarkannya,
-  // semua widget anak harus const.
   return Scaffold( 
     backgroundColor: Colors.white, 
     body: Center(
