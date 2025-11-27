@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:vestanesia/page/beranda_page.dart';
 import 'package:vestanesia/page/daftar_page.dart';
-import 'package:vestanesia/page/formulir_mitra.dart';
-import 'package:vestanesia/page/lengkapi_data.dart';
-import 'package:vestanesia/page/lengkapi_data2.dart';
+import 'package:vestanesia/page/formulir_mitra_page.dart';
+import 'package:vestanesia/page/lengkapi_data_page.dart';
+import 'package:vestanesia/page/lengkapi_data2_page.dart';
 import 'package:vestanesia/page/login_page.dart';
-import 'package:vestanesia/page/lupa_password.dart';
-import 'package:vestanesia/page/profil_akun.dart';
+import 'package:vestanesia/page/forgot_password_page.dart';
+import 'package:vestanesia/page/profil_akun_page.dart';
 import 'package:vestanesia/page/splash_screen.dart';
 
 class AppRoutes{

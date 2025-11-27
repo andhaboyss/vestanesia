@@ -151,7 +151,7 @@ class LoginScreenContent extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                   Image.asset(
+                    Image.asset(
                     'assets/logo.png',
                     height: 100, 
                     width: 300,

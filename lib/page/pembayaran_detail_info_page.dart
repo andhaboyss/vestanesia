@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vestanesia/page/pembayaran_detail2_page.dart';
 
 class PembayaranDetailInfo extends StatefulWidget {
   const PembayaranDetailInfo({super.key});
@@ -9,6 +10,7 @@ class PembayaranDetailInfo extends StatefulWidget {
 
 class _PembayaranDetailInfoState extends State<PembayaranDetailInfo> {
   String? metodePembayaran = "Transfer Bank";
+  bool _isExpanded = true;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,9 @@ class _PembayaranDetailInfoState extends State<PembayaranDetailInfo> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // ====================== PROGRAM TITLE ======================
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
                     "Program",
@@ -58,113 +62,139 @@ class _PembayaranDetailInfoState extends State<PembayaranDetailInfo> {
                       fontSize: 20,
                     ),
                   ),
-                  Image(
-                    image: AssetImage("assets/garis.png"),
-                    width: 280,
-                  )
+                  Container(
+                    width: 250,
+                    height: 1,
+                    color: Colors.grey.shade300,
+                  ),
                 ],
               ),
               const SizedBox(height: 16),
-              
               const Text(
                 "Pengembangan Komoditi Pisang Cavendish\n(Musa acuminate/Cavendish)",
                 style: TextStyle(fontSize: 14, color: Colors.black87, height: 1.4),
               ),
-              const SizedBox(height: 16),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text("Periode Imbal",
-                      style: TextStyle(color: Colors.black54, fontSize: 14)),
-                  Text("Presentase Imbal",
-                      style: TextStyle(color: Colors.black54, fontSize: 14)),
-                ],
+              AnimatedCrossFade(
+                duration: const Duration(milliseconds: 300),
+                crossFadeState:
+                    _isExpanded ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                firstChild: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text("Periode Imbal",
+                            style: TextStyle(color: Colors.black54, fontSize: 14)),
+                        Text("Presentase Imbal",
+                            style: TextStyle(color: Colors.black54, fontSize: 14)),
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Per 12 Bulan",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Container(
+                          padding:
+                              const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          child: const Text(
+                            "27%",
+                            style: TextStyle(color: Colors.white, fontSize: 13),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text("Min. Pendanaan",
+                            style: TextStyle(color: Colors.black54, fontSize: 14)),
+                        Text("Max. Pendanaan",
+                            style: TextStyle(color: Colors.black54, fontSize: 14)),
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text("Rp 100.000",
+                            style: TextStyle(color: Colors.black, fontSize: 14)),
+                        Text("Rp 100.000.000",
+                            style: TextStyle(color: Colors.black, fontSize: 14)),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          "Sisa 2 Hari Lagi",
+                          style: TextStyle(color: Colors.red, fontSize: 13),
+                        ),
+                        Text(
+                          "200 Unit Tersisa",
+                          style: TextStyle(color: Colors.black54, fontSize: 13),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 14),
+                  ],
+                ),
+                secondChild: const SizedBox.shrink(),
               ),
-              const SizedBox(height: 4),
+
+              // ====================== TOMBOL SEMBUNYIKAN / TAMPILKAN ======================
+              Align(
+                alignment: Alignment.centerRight,
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() => _isExpanded = !_isExpanded);
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    decoration: BoxDecoration(
+                      color: Colors.green.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Text(
+                      _isExpanded ? "Sembunyikan ▲" : "Lebih Banyak Info ▼",
+                      style: const TextStyle(color: Colors.green, fontSize: 13),
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    "Per 12 Bulan",
+                    "Ringkasan Biaya",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 14,
+                      fontSize: 16,
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: const Text(
-                      "27%",
-                      style: TextStyle(color: Colors.white, fontSize: 13),
-                    ),
+                    width: 220,
+                    height: 2,
+                    color: Colors.grey.shade300,
                   ),
                 ],
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text("Min. Pendanaan",
-                      style: TextStyle(color: Colors.black54, fontSize: 14)),
-                  Text("Max. Pendanaan",
-                      style: TextStyle(color: Colors.black54, fontSize: 14)),
-                ],
-              ),
-              const SizedBox(height: 4),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text("Rp 100.000",
-                      style: TextStyle(color: Colors.black, fontSize: 14)),
-                  Text("Rp 100.000.000",
-                      style: TextStyle(color: Colors.black, fontSize: 14)),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    "Sisa 2 Hari Lagi",
-                    style: TextStyle(color: Colors.red, fontSize: 13),
-                  ),
-                  Text(
-                    "200 Unit Tersisa",
-                    style: TextStyle(color: Colors.black54, fontSize: 13),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 14),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: Colors.green.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: const Text(
-                    "Sembunyikan ▲",
-                    style: TextStyle(color: Colors.green, fontSize: 13),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 16),
-
-              const SizedBox(height: 8),
-              const Text(
-                "Ringkasan Biaya",
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                ),
               ),
               const SizedBox(height: 12),
               Row(
@@ -205,14 +235,22 @@ class _PembayaranDetailInfoState extends State<PembayaranDetailInfo> {
 
               const SizedBox(height: 16),
 
-              // ===== PILIH METODE PEMBAYARAN =====
-              const SizedBox(height: 8),
-              const Text(
-                "Pilih Metode Pembayaran",
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: Colors.black),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Pilih Metode Pembayarann",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        color: Colors.black),
+                  ),
+                  Container(
+                    width: 140,
+                    height: 2,
+                    color: Colors.grey.shade300,
+                  ),
+                ],
               ),
               const SizedBox(height: 10),
 
@@ -256,7 +294,7 @@ class _PembayaranDetailInfoState extends State<PembayaranDetailInfo> {
         ),
       ),
 
-      // ===== BOTTOM BUTTON =====
+      // ====================== BOTTOM BUTTON ======================
       bottomNavigationBar: SafeArea(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -292,7 +330,14 @@ class _PembayaranDetailInfoState extends State<PembayaranDetailInfo> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PembayaranDetail2(),
+                    ),
+                  );
+                  },
                   child: const Text(
                     "Bayar Sekarang",
                     style: TextStyle(

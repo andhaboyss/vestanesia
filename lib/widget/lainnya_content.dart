@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vestanesia/common/app_routes.dart';
+import 'package:vestanesia/page/bantuan_page.dart';
+import 'package:vestanesia/page/investasi_page.dart';
+import 'package:vestanesia/page/kebjikaan_privasi_page.dart';
+import 'package:vestanesia/page/syarat_dan_ketentuan_page.dart';
 
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget({super.key});
@@ -115,22 +119,50 @@ class ProfileWidget extends StatelessWidget {
         // 🔹 Menu List
         _MenuItem(
           title: "Investasiku",
-          onTap: () => debugPrint("Investasiku ditekan"),
+          onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                builder: (context) => const InvestasikuPage(),
+              ),
+            );
+          },
         ),
         const Divider(height: 10),
         _MenuItem(
           title: "Bantuan",
-          onTap: () => debugPrint("Bantuan ditekan"),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                builder: (context) => const BantuanPage(),
+              ),
+            );
+          },
         ),
         const Divider(height: 10),
         _MenuItem(
           title: "Syarat & Ketentuan",
-          onTap: () => debugPrint("Syarat & Ketentuan ditekan"),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                builder: (context) => const SyaratDanKetentuanPage(),
+              ),
+            );
+          },
         ),
         const Divider(height: 10),
         _MenuItem(
           title: "Kebijakan Privasi",
-          onTap: () => debugPrint("Kebijakan Privasi ditekan"),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                builder: (context) => const KebijakanPrivasiPage(),
+              ),
+            );
+          },
         ),
         const Divider(height: 10),
         _MenuItem(

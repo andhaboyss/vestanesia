@@ -14,7 +14,6 @@ class _ProfilAkunState extends State<ProfilAkun> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(56),
         child: Container(

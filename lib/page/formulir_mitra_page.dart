@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vestanesia/page/main_frame_page.dart';
 import 'package:vestanesia/widget/custom_text.dart';
 
 class FormulirMitra extends StatefulWidget {
@@ -179,6 +180,12 @@ class _FormulirMitraState extends State<FormulirMitra> {
                   child: ElevatedButton(
                     onPressed: () {
 
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MainFrame(),
+                      ),
+                    );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,

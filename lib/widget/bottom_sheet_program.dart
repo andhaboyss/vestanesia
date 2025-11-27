@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vestanesia/page/pembayaran_detail_info_page.dart';
 
 void showInvestasiBottomSheet(BuildContext context) {
   showModalBottomSheet(
@@ -272,7 +273,14 @@ void showInvestasiBottomSheet(BuildContext context) {
                         const SizedBox(width: 12),
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const PembayaranDetailInfo(),
+                              ),
+                            );
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.green,
                               shape: RoundedRectangleBorder(

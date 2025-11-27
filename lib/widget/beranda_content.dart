@@ -189,9 +189,9 @@ class CardPetani extends StatelessWidget {
           GestureDetector(
             onTap: () {
               Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => const DetailProgramContent(),)
-      );
+                context,
+                MaterialPageRoute(builder: (context) => const DetailProgramContent(),)
+              );
             },
             child: Container(
               width: double.infinity,
